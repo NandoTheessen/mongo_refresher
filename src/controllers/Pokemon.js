@@ -5,7 +5,7 @@ const API = process.env.API || 'https://pokeapi.co/api/v2/pokemon';
 
 const getPokemon = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.params;
     const query = await Pokemon.find({ name }, { _id: 0 }).populate(
       'abilities',
       {
