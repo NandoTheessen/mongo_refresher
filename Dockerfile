@@ -1,11 +1,13 @@
-FROM node:10.15.1
+FROM node:10
 
-COPY . /app
+WORKDIR /usr/src/app
 
-WORKDIR /app
+COPY package*.json ./
 
 RUN npm install
 
-EXPOSE 80
+COPY . .
+
+EXPOSE 4500
 
 CMD ["npm", "start"]
